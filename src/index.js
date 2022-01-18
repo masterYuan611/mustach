@@ -2,14 +2,27 @@ import Scanner from "./Scanner.js";
 
 window.templateEngine = {
   render(template, data) {
+    let tokens = [];
+    let words;
     let scanner = new Scanner(template);
     while (!scanner.eos()) {
-      let words = scanner.sncaUtil("{{");
-      console.log(words);
+      words = scanner.sncaUtil("{{");
+      if(words) {
+        tokens.push(["text", words]);
+      }
       scanner.scan("{{");
-      let name = scanner.sncaUtil("}}");
-      console.log(name);
+      words = scanner.sncaUtil("}}");
+      if(words) {
+        if(words[0] === '#') {
+          tokens.push(["#", words.substring(1)]);
+        } else if (words[0] === '/') {
+          tokens.push(["/", words.substring(1)]);
+        } else {
+          tokens.push(["name", words]);
+        }
+      }
       scanner.scan("}}");
     }
+    console.log(tokens);
   },
 };
