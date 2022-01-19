@@ -1,4 +1,5 @@
 import Scanner from "./Scanner.js";
+import nestTokens from "./nestTokens.js";
 
 window.templateEngine = {
   render(template, data) {
@@ -23,6 +24,7 @@ window.templateEngine = {
       }
       scanner.scan("}}");
     }
-    console.log(tokens);
+    console.log("tokens数组",tokens);
+    // console.log(nestTokens(tokens));
   },
 };
