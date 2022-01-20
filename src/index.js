@@ -1,5 +1,6 @@
 import Scanner from "./Scanner.js";
 import nestTokens from "./nestTokens.js";
+import renderTemplate from './renderTemplate.js';
 
 window.templateEngine = {
   render(template, data) {
@@ -24,7 +25,8 @@ window.templateEngine = {
       }
       scanner.scan("}}");
     }
-    console.log("tokens数组",tokens);
-    // console.log(nestTokens(tokens));
+    let nestedTokens = nestTokens(tokens);
+    console.log("tokens字符串", nestedTokens);
+    let domStr = renderTemplate(nestedTokens,data);
   },
 };

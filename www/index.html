@@ -24,7 +24,12 @@
                 {{/students}}
             </ol>
             </div>`;
-        templateEngine.render(templateStr);
+        let data = { 
+        students:[
+          { name:"小明",hobbies:['游泳','爬山','打羽毛球'] },
+          { name:"小明",hobbies:['泡脚','看电影'] }]
+        };
+        templateEngine.render(templateStr, data);
     </script>
 </body>
 </html>
