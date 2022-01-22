@@ -14,12 +14,12 @@
             <ol>
                 {{#students}}
                 <li>
-                    学生{{item.name}}的爱好是
+                    学生{{name}}的爱好是
                     <ol>
-                        {{#item.hobbies}}
+                        {{#hobbies}}
                         <li>{{.}}</li>
-                        {{/item.hobbies}}
-                    </pl>
+                        {{/hobbies}}
+                    </ol>
                 </li>
                 {{/students}}
             </ol>
@@ -27,7 +27,7 @@
         let data = { 
         students:[
           { name:"小明",hobbies:['游泳','爬山','打羽毛球'] },
-          { name:"小明",hobbies:['泡脚','看电影'] }]
+          { name:"小华",hobbies:['泡脚','看电影'] }]
         };
         templateEngine.render(templateStr, data);
     </script>

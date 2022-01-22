@@ -28,6 +28,6 @@ window.templateEngine = {
     let nestedTokens = nestTokens(tokens);
     console.log("tokens字符串", nestedTokens);
     let domStr = renderTemplate(nestedTokens, data);
-    console.log(domStr);
+    console.log("结果字符串",domStr);
   },
 };

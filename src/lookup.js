@@ -4,9 +4,13 @@
 
 export default function lookup(dataObj, keyNmae) {
   let result = dataObj;
-  let keyArr = keyNmae.split(".");
-  keyArr.forEach((item) => {
+  if(keyNmae !== '.') {
+    let keyArr = keyNmae.split(".");
+    keyArr.forEach((item) => {
     result = result[item];
-  });
+    });
+  } else {
+      result = dataObj[keyNmae];
+  }
   return result;
 }
